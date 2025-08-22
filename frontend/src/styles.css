@@ -1,0 +1,227 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+/* Scoped UI theme for control panels only */
+:root {
+  --ui-bg: #ffffff;
+  --ui-border: #e6e8f0;
+  --ui-muted: #64748b;
+  --ui-surface: #f5f7ff;
+  --ui-primary: #6366f1; /* indigo-500 */
+  --ui-primary-hover: #4f46e5; /* indigo-600 */
+  --ui-ring: rgba(99, 102, 241, 0.25);
+}
+
+.ui-panel {
+  background: var(--ui-bg);
+  border-right: 1px solid var(--ui-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-panel-right {
+  border-left: 1px solid var(--ui-border);
+}
+
+.ui-panel-header {
+  padding: 12px;
+}
+
+.ui-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: 26px;
+}
+
+.ui-h3 {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.ui-section {
+  padding: 12px;
+}
+
+.ui-row { display: flex; gap: 8px; }
+
+.ui-button {
+  background: #fff;
+  border: 1px solid var(--ui-border);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  font-size: 16px;
+}
+.ui-button:hover { background: #f8fafc; }
+.ui-button:focus { outline: none; box-shadow: 0 0 0 3px var(--ui-ring); }
+
+.ui-button-primary {
+  color: #fff;
+  background: var(--ui-primary);
+  border-color: var(--ui-primary);
+}
+.ui-button-primary:hover { background: var(--ui-primary-hover); border-color: var(--ui-primary-hover); }
+
+.ui-badge { font-size: 12px; color: var(--ui-muted); }
+
+.ui-field { margin-bottom: 10px; }
+.ui-label { display: block; font-size: 14px; color: var(--ui-muted); margin-bottom: 6px; }
+
+.ui-accordion {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  text-align: left;
+}
+.ui-accordion:hover { background: #f8fafc; }
+
+/* Outline accents for creator buttons */
+.ui-button-outline--event { border-color: #0ea5e9; }
+.ui-button-outline--event:hover { background: #e0f2fe; }
+
+.ui-button-outline--action { border-color: #10b981; }
+.ui-button-outline--action:hover { background: #ecfdf5; }
+
+.ui-button-outline--condition { border-color: #f59e0b; }
+.ui-button-outline--condition:hover { background: #fff7ed; }
+
+/* Limit max width of inputs to ensure they fit the right panel comfortably */
+.ui-panel-right .ui-input,
+.ui-panel-right .ui-select,
+.ui-panel-right .ui-textarea,
+.ui-panel .ui-input,
+.ui-panel .ui-select,
+.ui-panel .ui-textarea {
+  max-width: 520px;
+}
+
+.ui-input, .ui-select, .ui-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  font-size: 16px;
+}
+.ui-textarea { min-height: 100px; resize: vertical; }
+
+.ui-input:focus, .ui-select:focus, .ui-textarea:focus {
+  outline: none;
+  border-color: var(--ui-primary);
+  box-shadow: 0 0 0 3px var(--ui-ring);
+}
+
+.ui-logs {
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  padding: 8px;
+  height: 220px;
+  overflow: auto;
+}
+
+.ui-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 11px;
+  border: 1px solid #e0e7ff;
+}
+
+/* Modal styles */
+.ui-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.ui-modal {
+  width: 720px;
+  max-width: 92vw;
+  background: #fff;
+  border: 1px solid var(--ui-border);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.ui-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid var(--ui-border);
+}
+.ui-modal-stage {
+  padding: 16px;
+  background: #f8fafc;
+  max-height: 65vh;
+  overflow: auto;
+}
+.ui-step {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.ui-step-icon { font-size: 20px; }
+.ui-step-text { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+
+/* Stats tooltip styles */
+.stats-tooltip {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.4;
+}
+
+.stats-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* Стрелка справа (по умолчанию) */
+.stats-tooltip::before {
+  left: -8px;
+  border-right: 8px solid rgba(0, 0, 0, 0.9);
+}
+
+/* Стрелка слева (когда tooltip справа от узла) */
+.stats-tooltip[style*="--arrow-position: left"]::before {
+  left: auto;
+  right: -8px;
+  border-right: none;
+  border-left: 8px solid rgba(0, 0, 0, 0.9);
+}
+
+

@@ -1,0 +1,252 @@
+{
+  "chain": {
+    "nodes": [
+      {
+        "id": "event-ol539",
+        "type": "event",
+        "position": {
+          "x": 206.30583524000315,
+          "y": -412.3060886282967
+        },
+        "data": {
+          "label": "Старт онбординговой цепочки",
+          "eventType": "contact_added",
+          "listName": "тестовый"
+        },
+        "width": 207,
+        "height": 50,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 206.30583524000315,
+          "y": -412.3060886282967
+        },
+        "dragging": false
+      },
+      {
+        "id": "action-46yql",
+        "type": "action",
+        "position": {
+          "x": 629.5973976996393,
+          "y": -413.81545843029204
+        },
+        "data": {
+          "label": "action",
+          "actionType": "wait",
+          "delayValue": 1,
+          "delayUnit": "days"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 629.5973976996393,
+          "y": -413.81545843029204
+        },
+        "dragging": false
+      },
+      {
+        "id": "action-di6qb",
+        "type": "action",
+        "position": {
+          "x": 789.5692211003336,
+          "y": -282.29553615675474
+        },
+        "data": {
+          "label": "action",
+          "actionType": "send_email",
+          "delayValue": 1,
+          "delayUnit": "days",
+          "sender": "no-reply@example.com",
+          "subject": "Онбординг 1"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": false,
+        "dragging": false,
+        "positionAbsolute": {
+          "x": 789.5692211003336,
+          "y": -282.29553615675474
+        }
+      },
+      {
+        "id": "condition-8c8zw",
+        "type": "condition",
+        "position": {
+          "x": 959.6101276515961,
+          "y": -167.72477316510503
+        },
+        "data": {
+          "label": "открыл ли письмо",
+          "conditionType": "opened",
+          "value": "true",
+          "emailRef": "action-di6qb"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 959.6101276515961,
+          "y": -167.72477316510503
+        },
+        "dragging": false
+      },
+      {
+        "id": "action-c1f1g",
+        "type": "action",
+        "position": {
+          "x": 1179.3447917891804,
+          "y": -298.39058411025303
+        },
+        "data": {
+          "label": "action",
+          "actionType": "send_email",
+          "delayValue": 1,
+          "delayUnit": "days",
+          "subject": "онбординг 2"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": true,
+        "dragging": false,
+        "positionAbsolute": {
+          "x": 1179.3447917891804,
+          "y": -298.39058411025303
+        }
+      },
+      {
+        "id": "action-dubxt",
+        "type": "action",
+        "position": {
+          "x": 1216.9620153608373,
+          "y": -94.16835870261623
+        },
+        "data": {
+          "label": "action",
+          "actionType": "stop",
+          "delayValue": 1,
+          "delayUnit": "days"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": false,
+        "dragging": false,
+        "positionAbsolute": {
+          "x": 1216.9620153608373,
+          "y": -94.16835870261623
+        }
+      },
+      {
+        "id": "condition-e4phz",
+        "type": "condition",
+        "position": {
+          "x": 449.3780380409743,
+          "y": -336.95369551448687
+        },
+        "data": {
+          "label": "condition",
+          "conditionType": "date",
+          "operator": ">",
+          "value": "2025-08-20"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 449.3780380409743,
+          "y": -336.95369551448687
+        },
+        "dragging": false
+      },
+      {
+        "id": "action-99fx8",
+        "type": "action",
+        "position": {
+          "x": 629.5508975647863,
+          "y": -180.4877911911766
+        },
+        "data": {
+          "label": "action",
+          "actionType": "stop",
+          "delayValue": 1,
+          "delayUnit": "days"
+        },
+        "width": 158,
+        "height": 50,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 629.5508975647863,
+          "y": -180.4877911911766
+        },
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "action-46yql",
+        "sourceHandle": null,
+        "target": "action-di6qb",
+        "targetHandle": null,
+        "id": "e-g3po0o"
+      },
+      {
+        "source": "action-di6qb",
+        "sourceHandle": null,
+        "target": "condition-8c8zw",
+        "targetHandle": null,
+        "id": "e-sxlats"
+      },
+      {
+        "source": "condition-8c8zw",
+        "sourceHandle": "yes",
+        "target": "action-c1f1g",
+        "targetHandle": null,
+        "id": "e-uvlbp5",
+        "data": {
+          "path": "yes"
+        },
+        "label": "yes"
+      },
+      {
+        "source": "condition-8c8zw",
+        "sourceHandle": "no",
+        "target": "action-dubxt",
+        "targetHandle": null,
+        "id": "e-zxrvln",
+        "data": {
+          "path": "no"
+        },
+        "label": "no"
+      },
+      {
+        "source": "event-ol539",
+        "sourceHandle": null,
+        "target": "condition-e4phz",
+        "targetHandle": null,
+        "id": "e-ezz331"
+      },
+      {
+        "source": "condition-e4phz",
+        "sourceHandle": "yes",
+        "target": "action-46yql",
+        "targetHandle": null,
+        "id": "e-42ljau",
+        "data": {
+          "path": "yes"
+        },
+        "label": "yes"
+      },
+      {
+        "source": "condition-e4phz",
+        "sourceHandle": "no",
+        "target": "action-99fx8",
+        "targetHandle": null,
+        "id": "e-mfy2y8",
+        "data": {
+          "path": "no"
+        },
+        "label": "no"
+      }
+    ]
+  }
+
+
